@@ -1,5 +1,5 @@
 import React, {getElementByClassName} from "react";
-import { render, fireEvent, screen, getLabelByTestId, getByLabelText, getByText, getByTestId } from "@testing-library/react";
+import { render, fireEvent, screen, getLabelByTestId, getByLabelText, getByText, getByTestId, findByTestId } from "@testing-library/react";
 import CheckoutForm from "./CheckoutForm";
 
 // Write up the two tests here and make sure they are testing what the title shows
@@ -33,8 +33,7 @@ test("form shows success message on submit with form details", () => {
     fireEvent.click(checkoutButton)
 
 
-    if(screen.getByTestId(/successMessage/i) !== true) {
-        throw "Message did not show up"
-    }
-    
+    const successMessage = screen.getByTestId(/successMessage/i) 
+
+    expect(successMessage).toBeInTheDocument();
 });

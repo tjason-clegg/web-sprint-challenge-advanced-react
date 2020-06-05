@@ -10,9 +10,5 @@ export const useForm = (key, initialValue) => {
   };
 
 
-    
-
-
-
     return [values, handleChanges]
 }
